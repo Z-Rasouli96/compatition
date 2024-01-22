@@ -16,21 +16,26 @@
     
     <div class="container m-5">
         
-       <form action="" method="post">
+       <form action="{{ route('compatition-list') }}" method="POST">
             @csrf
+            <!-- @method('POST') -->
+            <div class="mb-3">
+                <label for="username" class="form-label">User name</label>
+                <input type="test" class="form-control" name="username" id="username" placeholder="user name .....">
+            </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com .....">
             </div>
             
             <div class="mb-3">
                 <div class="form-group mb-3">
-                    <label for="select2Multiple">Multiple Tags</label>
-                    <select class="select2-multiple form-control" name="tags[]" multiple="multiple"
+                    <label for="select2Multiple">Select lecture</label>
+                    <select class="select2-multiple form-control" name="competitions[]" multiple="multiple"
                     id="select2Multiple">
-                    <option value="tag1">tag1</option>
-                    <option value="tag2">tag2</option>
-                    <option value="tag3">tag3</option>               
+                    @foreach($courses as $id => $course)
+                    <option value="{{$id}}">{{$course->name}}</option>
+                    @endforeach             
                     </select>
                 </div>
             </div>
