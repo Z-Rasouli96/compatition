@@ -10,39 +10,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    <title>compatition-form</title>
+    <title>compatition-list</title>
 </head>
 <body>
     
     <div class="container m-5">
         
-       <form action="{{ route('compatition.list') }}" method="POST">
-            @csrf
-            <!-- @method('POST') -->
-            <div class="mb-3">
-                <label for="username" class="form-label">User name</label>
-                <input type="test" class="form-control" name="username" id="username" placeholder="user name .....">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com .....">
-            </div>
-            
-            <div class="mb-3">
-                <div class="form-group mb-3">
-                    <label for="select2Multiple">Select lecture</label>
-                    <select class="select2-multiple form-control" name="course_id[]" multiple="multiple"
-                    id="course_id">
-                    @foreach($courses as $id => $course)
-                    <option value={{$id}}>{{$course->name}}</option>
-                    @endforeach             
-                    </select>
-                </div>
-            </div>
-
-            <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+       <h1>list</h1>
 
        </form>
 

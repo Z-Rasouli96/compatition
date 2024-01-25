@@ -12,10 +12,15 @@ class Course extends Model
 
     protected $fillable = [
         'name',
+        'course_id',
     ];
 
-    public function students()
+
+    public function courses()
     {
-        return $this->belongsToMany(Student::class);
+        return $this->hasMany(Course::class, 'course_id');
+    }
+    public function students(){
+        return $this->belongsToMany(Student::class ,'course_student','course_id','student_id')->with('courses');
     }
 }

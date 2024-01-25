@@ -18,7 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/compatition',[CompetitionController::class,'index']);
+// Route::get('/compatition',[CompetitionController::class,'index']);
 
-Route::post('/compatition-form',[CompetitionController::class,'store'])->name('compatition-list');
+// Route::post('/compatition-form',[CompetitionController::class,'store'])->name('compatition-list');
+
+Route::get('/compatition-form',[CompetitionController::class,'index']);
+
+Route::post('/compatition-list',[CompetitionController::class,'store'])->name('compatition.list');
 
