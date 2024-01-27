@@ -17,6 +17,34 @@
     <div class="container m-5">
         
        <h1>list</h1>
+       <!-- {{ $students }} -->
+
+
+<table class="table table-striped">
+
+  <thead>
+    <tr>
+      <th scope="col">User Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">oprate</th>
+    </tr>
+  </thead>
+  @foreach($students as $id => $student)
+  <tbody>
+    <tr>
+      <th scope="row"> {{$student->username}}</th>
+      <td> {{$student->email}}</td>
+
+      <td> <a href="{{ route('compatition.edit', ['id' => $student->id]) }}"><button type="button" class="btn btn-primary">update</button> </a> </td>
+    </tr>
+  </tbody>
+  @endforeach 
+</table>
+
+
+       
+       
+        
 
        </form>
 
@@ -27,17 +55,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            // Select2 Multiple
-            $('.select2-multiple').select2({
-                placeholder: "Select",
-                allowClear: true
-            });
-
-        });
-
-
-    </script>
 </body>
 </html>

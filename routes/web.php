@@ -26,3 +26,12 @@ Route::get('/compatition-form',[CompetitionController::class,'index']);
 
 Route::post('/compatition-list',[CompetitionController::class,'store'])->name('compatition.list');
 
+Route::get('/compatition-list',[CompetitionController::class,'get']);
+
+Route::get('/compatition-update/{id}',[CompetitionController::class,'edit'])->name('compatition.edit');
+
+// Route::put('/compatition-update',[CompetitionController::class,'update']);
+
+
+
+

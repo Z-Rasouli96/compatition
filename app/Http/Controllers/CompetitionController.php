@@ -18,18 +18,6 @@ class CompetitionController extends Controller
 
     public function store(Request $request){
        
-        // var_dump($request->course_id);
-        // dd($request->course_id);
-        // dd(json_encode($request->course_id));
-      
-        foreach ($request->course_id as $each_number) {
-            $result_array[] = (int) $each_number;
-        }
-        $categories  = [1, 2, 4];
-        // var_dump($categories);
-        // var_dump($result_array);
-        // dd($result_array);
-     
 
         $student = new Student();
         $student->username = $request->input('username');
@@ -40,13 +28,50 @@ class CompetitionController extends Controller
     
         $student->courses()->sync($request->course_id);
 
-        // foreach ($result_array as $key => $value) {
-        //     $student->courses()->attach($value);
-        //   }
-     
+        // $students = Student::all();
 
-        return view('compatition-list',compact('student'));
+        // return view('compatition-list',compact('students'));
+        return view('compatition-list');
+
+
         
-        //  return view('compatition-form');
     }
+
+    public function get(){
+       
+
+        $students = Student::get();
+        // $students = Student::with('courses')->get();
+      
+      
+
+        return view('compatition-list',compact('students'));
+        
+    }
+
+    public function edit(Request $request){
+
+        $student = Student::with('courses')->find($request->id);
+
+        $selectedCourse = $student->courses->pluck('id')->toArray();
+
+        $courses = Course::all()->pluck('id')->toArray();
+        var_dump("selected.........",$selectedCourse);
+        var_dump("courses all...............",$courses);
+
+        $coursesId = array_diff($courses,$selectedCourse);
+
+        $courses = Course::find($coursesId);
+
+        return view('compatition-form-update',compact('student','courses'));
+    }
+
+    // public function update(Request $request){
+
+    //     $students = Student::with('courses')->find($request->id);
+
+    //     // dd($students);
+
+    //     return view('compatition-form-update',compact('students'));
+    // }
 }
