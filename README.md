@@ -59,6 +59,23 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 ## Security Vulnerabilities
 
+##About project
+-----------------
+composer i
+
+cp .env.example .env
+
+php artisan migrate
+
+php artisan key:generate
+
+php artisan db:seed
+
+php artisan app:newscomment
+ 
+
+
+
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
