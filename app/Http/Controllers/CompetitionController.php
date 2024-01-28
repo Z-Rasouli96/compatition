@@ -56,8 +56,6 @@ class CompetitionController extends Controller
         $selectedCourse = $student->courses->pluck('id')->toArray();
 
         $courses = Course::all()->pluck('id')->toArray();
-        var_dump("selected.........",$selectedCourse);
-        var_dump("courses all...............",$courses);
 
         $coursesId = array_diff($courses,$selectedCourse);
 

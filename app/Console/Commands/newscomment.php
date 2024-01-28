@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\News;
+use App\Models\Category;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
@@ -31,7 +32,9 @@ class newscomment extends Command
     public function handle()
     {
         //https://newsapi.org/
-        
+
+        $category_id = Category::get()->pluck('id')->toArray();
+
         $tesla = Http::get("https://newsapi.org/v2/everything?q='$this->teslaArticle'&from=2023-12-28&sortBy=publishedAt&apiKey=cebfa13305ec48a49fa463d1ec036eff")->json();
 
         $apple = Http::get("https://newsapi.org/v2/everything?q='$this->appleArticle'&from=2024-01-14&to=2024-01-27&sortBy=popularity&apiKey=cebfa13305ec48a49fa463d1ec036eff")->json();
@@ -51,7 +54,7 @@ class newscomment extends Command
               'publishedAt' => $value["publishedAt"],
               'content' => $value["content"],
           ]);
-    
+          $news->categories()->sync($category_id[0]);
         }
     
         foreach ($apple["articles"] as $keyapi => $value) {
@@ -68,6 +71,8 @@ class newscomment extends Command
             'publishedAt' => $value["publishedAt"],
             'content' => $value["content"],
         ]);
+
+        $news->categories()->sync($category_id[10]);
     
       }
     }

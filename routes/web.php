@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\CompetitionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\CompetitionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::get('/compatition-list',[CompetitionController::class,'get']);
 Route::get('/compatition-update/{id}',[CompetitionController::class,'edit'])->name('compatition.edit');
 
 // Route::put('/compatition-update',[CompetitionController::class,'update']);
+
+Route::get('/news',[NewsController::class,'show']);
 
 
 

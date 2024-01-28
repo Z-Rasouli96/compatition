@@ -21,10 +21,6 @@ class News extends Model
         'content',
     ];
 
-    // public function getUrlAttribute($value){
-    //     return 'http://127.0.0.1:8000/'.$value;
-
-    // }
 
     public function categories()
     {
