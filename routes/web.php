@@ -19,9 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/compatition',[CompetitionController::class,'index']);
 
-// Route::post('/compatition-form',[CompetitionController::class,'store'])->name('compatition-list');
 
 Route::get('/compatition-form',[CompetitionController::class,'index']);
 

@@ -28,9 +28,6 @@ class CompetitionController extends Controller
     
         $student->courses()->sync($request->course_id);
 
-        // $students = Student::all();
-
-        // return view('compatition-list',compact('students'));
         return view('compatition-list');
 
 
@@ -41,9 +38,7 @@ class CompetitionController extends Controller
        
 
         $students = Student::get();
-        // $students = Student::with('courses')->get();
-      
-      
+
 
         return view('compatition-list',compact('students'));
         
@@ -61,15 +56,8 @@ class CompetitionController extends Controller
 
         $courses = Course::find($coursesId);
 
+
         return view('compatition-form-update',compact('student','courses'));
     }
 
-    // public function update(Request $request){
-
-    //     $students = Student::with('courses')->find($request->id);
-
-    //     // dd($students);
-
-    //     return view('compatition-form-update',compact('students'));
-    // }
 }

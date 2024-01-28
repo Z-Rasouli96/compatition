@@ -17,7 +17,7 @@
     <div class="container m-5">
         
        <h1>list</h1>
-       <!-- {{ $students }} -->
+     
 
 
 <table class="table table-striped">
@@ -26,7 +26,7 @@
     <tr>
       <th scope="col">User Name</th>
       <th scope="col">Email</th>
-      <th scope="col">oprate</th>
+   
     </tr>
   </thead>
   @foreach($students as $id => $student)
@@ -35,7 +35,6 @@
       <th scope="row"> {{$student->username}}</th>
       <td> {{$student->email}}</td>
 
-      <td> <a href="{{ route('compatition.edit', ['id' => $student->id]) }}"><button type="button" class="btn btn-primary">update</button> </a> </td>
     </tr>
   </tbody>
   @endforeach 
